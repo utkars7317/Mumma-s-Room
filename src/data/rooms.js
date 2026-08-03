@@ -1,0 +1,26 @@
+export const ROOMS = [
+  {
+    id: 1,
+    title: "Luxury PG for Boys",
+    city: "Kanpur",
+    price: "₹6,500 / month",
+    rating: 4.8,
+    image: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=800",
+  },
+  {
+    id: 2,
+    title: "Girls Hostel",
+    city: "Lucknow",
+    price: "₹5,800 / month",
+    rating: 4.7,
+    image: "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800",
+  },
+  {
+    id: 3,
+    title: "Studio Apartment",
+    city: "Delhi",
+    price: "₹12,000 / month",
+    rating: 4.9,
+    image: "https://images.unsplash.com/photo-1494526585095-c41746248156?w=800",
+  },
+];

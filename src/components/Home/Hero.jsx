@@ -1,44 +1,81 @@
+import { Search, MapPin, Star } from "lucide-react";
+import { motion } from "framer-motion";
+import PrimaryButton from "@/components/ui/PrimaryButton";
+
 function Hero() {
   return (
-    <section className="bg-gradient-to-r from-orange-50 to-blue-50">
-      <div className="max-w-7xl mx-auto px-6 py-24 grid lg:grid-cols-2 gap-12 items-center">
+    <section className="bg-gradient-to-br from-orange-50 via-white to-orange-100">
+      <div className="mx-auto flex min-h-[85vh] max-w-7xl flex-col items-center justify-between gap-12 px-6 py-16 lg:flex-row">
 
         {/* Left Content */}
-        <div>
-          <span className="inline-block bg-orange-100 text-orange-600 px-4 py-2 rounded-full text-sm font-semibold">
-            🏠 Trusted Student Accommodation
+        <motion.div
+          initial={{ opacity: 0, x: -40 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6 }}
+          className="max-w-xl"
+        >
+          <span className="rounded-full bg-orange-100 px-4 py-2 text-sm font-semibold text-orange-600">
+            🏠 Trusted by 10,000+ Students
           </span>
 
-          <h1 className="mt-6 text-5xl lg:text-6xl font-extrabold leading-tight text-gray-900">
-            Find Your
-            <span className="text-orange-500"> Perfect Room </span>
-            Without the Stress
+          <h1 className="mt-6 text-5xl font-extrabold leading-tight text-slate-900">
+            Find Your Perfect
+            <span className="block text-orange-500">
+              Room Near Your College
+            </span>
           </h1>
 
-          <p className="mt-6 text-lg text-gray-600 leading-8">
-            Discover verified rooms, PGs, hostels, and shared accommodations
-            near your college or workplace.
+          <p className="mt-6 text-lg text-slate-600">
+            Search verified PGs, hostels and rental rooms with transparent
+            pricing, modern amenities and trusted landlords.
           </p>
 
           <div className="mt-8 flex gap-4">
-            <button className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-xl font-semibold">
+            <PrimaryButton>
               Explore Rooms
-            </button>
+            </PrimaryButton>
 
-            <button className="border border-gray-300 px-8 py-4 rounded-xl font-semibold hover:bg-gray-100">
-              List Your Room
-            </button>
+            <PrimaryButton variant="outline">
+              Become a Landlord
+            </PrimaryButton>
           </div>
-        </div>
+        </motion.div>
 
-        {/* Right Image */}
-        <div>
-          <img
-            src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=900"
-            alt="Room"
-            className="rounded-3xl shadow-2xl"
-          />
-        </div>
+        {/* Right Card */}
+        <motion.div
+          initial={{ opacity: 0, x: 40 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6 }}
+          className="w-full max-w-md rounded-3xl bg-white p-6 shadow-2xl"
+        >
+          <div className="mb-4 flex items-center gap-2">
+            <Search className="text-orange-500" />
+            <input
+              className="w-full border-none outline-none"
+              placeholder="Search city or college..."
+            />
+          </div>
+
+          <div className="space-y-4">
+            <div className="flex items-center justify-between rounded-xl bg-orange-50 p-4">
+              <div className="flex items-center gap-2">
+                <MapPin className="text-orange-500" />
+                <span>Kanpur</span>
+              </div>
+
+              <span className="font-semibold">320 Rooms</span>
+            </div>
+
+            <div className="flex items-center justify-between rounded-xl bg-orange-50 p-4">
+              <div className="flex items-center gap-2">
+                <Star className="text-yellow-500" />
+                <span>Verified Listings</span>
+              </div>
+
+              <span className="font-semibold">100%</span>
+            </div>
+          </div>
+        </motion.div>
 
       </div>
     </section>

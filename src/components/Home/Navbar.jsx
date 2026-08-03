@@ -1,97 +1,47 @@
-import { Menu, X, Home, Building2, Info, Phone, User } from "lucide-react";
-import { useState } from "react";
+import { Menu } from "lucide-react";
+import { Link } from "react-router-dom";
+
+import Logo from "@/components/ui/Logo";
+import PrimaryButton from "@/components/ui/PrimaryButton";
+import { NAV_LINKS } from "@/data/navigation";
 
 function Navbar() {
-  const [menuOpen, setMenuOpen] = useState(false);
-
-  const navLinks = [
-    { name: "Home", icon: Home },
-    { name: "Find Rooms", icon: Building2 },
-    { name: "About", icon: Info },
-    { name: "Contact", icon: Phone },
-  ];
-
   return (
-    <header className="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-100 shadow-sm">
-      <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+    <header className="sticky top-0 z-50 border-b bg-white/80 backdrop-blur-md">
+      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
 
-        {/* Logo */}
-        <div className="flex items-center gap-3">
-          <div className="w-11 h-11 rounded-xl bg-orange-500 flex items-center justify-center text-white text-xl">
-            🏠
-          </div>
-
-          <div>
-            <h1 className="text-xl font-bold text-gray-900">
-              Mumma's Room
-            </h1>
-
-            <p className="text-xs text-gray-500">
-              Home Away From Home
-            </p>
-          </div>
-        </div>
+        <Logo />
 
         {/* Desktop Menu */}
-        <nav className="hidden lg:flex items-center gap-8">
-          {navLinks.map((item) => (
-            <a
-              key={item.name}
-              href="#"
-              className="flex items-center gap-2 text-gray-600 hover:text-orange-500 transition font-medium"
+        <nav className="hidden items-center gap-8 md:flex">
+          {NAV_LINKS.map((item) => (
+            <Link
+              key={item.id}
+              to={item.path}
+              className="font-medium text-slate-700 transition hover:text-orange-500"
             >
-              <item.icon size={18} />
-              {item.name}
-            </a>
+              {item.title}
+            </Link>
           ))}
         </nav>
 
-        {/* Desktop Buttons */}
-        <div className="hidden lg:flex items-center gap-3">
-          <button className="px-5 py-2 rounded-xl border border-orange-500 text-orange-500 hover:bg-orange-50 transition">
+        {/* Right Side */}
+        <div className="hidden items-center gap-3 md:flex">
+          <PrimaryButton variant="outline">
             Login
-          </button>
+          </PrimaryButton>
 
-          <button className="px-5 py-2 rounded-xl bg-orange-500 text-white hover:bg-orange-600 transition">
+          <PrimaryButton>
             Sign Up
-          </button>
+          </PrimaryButton>
         </div>
 
-        {/* Mobile Menu Button */}
-        <button
-          className="lg:hidden"
-          onClick={() => setMenuOpen(!menuOpen)}
-        >
-          {menuOpen ? <X size={28} /> : <Menu size={28} />}
+        {/* Mobile Icon */}
+        <button className="md:hidden">
+          <Menu size={28} />
         </button>
+
       </div>
-
-      {/* Mobile Menu */}
-      {menuOpen && (
-        <div className="lg:hidden bg-white border-t">
-          <div className="px-6 py-5 flex flex-col gap-5">
-
-            {navLinks.map((item) => (
-              <a
-                key={item.name}
-                href="#"
-                className="flex items-center gap-3 text-gray-700"
-              >
-                <item.icon size={18} />
-                {item.name}
-              </a>
-            ))}
-
-            <button className="w-full py-3 rounded-xl border border-orange-500 text-orange-500">
-              Login
-            </button>
-
-            <button className="w-full py-3 rounded-xl bg-orange-500 text-white">
-              Sign Up
-            </button>
-          </div>
-        </div>
-      )}
     </header>
   );
 }
