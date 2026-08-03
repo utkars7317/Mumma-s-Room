@@ -27,13 +27,17 @@ function Navbar() {
 
         {/* Right Side */}
         <div className="hidden items-center gap-3 md:flex">
-          <PrimaryButton variant="outline">
-            Login
-          </PrimaryButton>
+          <Link to="/login">
+  <PrimaryButton variant="outline">
+    Login
+  </PrimaryButton>
+</Link>
 
-          <PrimaryButton>
-            Sign Up
-          </PrimaryButton>
+<Link to="/signup">
+  <PrimaryButton>
+    Sign Up
+  </PrimaryButton>
+</Link>
         </div>
 
         {/* Mobile Icon */}
